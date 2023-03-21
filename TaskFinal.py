@@ -36,7 +36,6 @@ class Seach_selenide(unittest.TestCase):
 
         # 5.Проверка, что первое изображение неким образом связано с сайтом selenide.org.
         first_image = self.drv.find_element(By.XPATH, '//*[@id="islrg"]/div[1]/div[1]/a[2]').get_attribute("href")
-        print(first_image)
         assert "https://ru.selenide.org/" in first_image
 
         # 6.Вернуться в раздел поиска Все
@@ -52,8 +51,8 @@ class Seach_selenide(unittest.TestCase):
 
         self.drv.back()
 
-    #def tearDown(self):
-     #   self.drv.close()
+    def tearDown(self):
+        self.drv.close()
 
 if __name__ == '__main__':
     unittest.main()
